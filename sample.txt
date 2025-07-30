@@ -1,0 +1,10 @@
+Content of file on server:
+
+Welcome to my server...
+1
+2
+3
+4
+5
+...Revieved data from server
+#EOF
