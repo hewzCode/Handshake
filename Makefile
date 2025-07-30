@@ -1,19 +1,21 @@
-# Makefile for C++17 TCP client/server (UTD dcxx machines)
-CXX      := g++
-CXXFLAGS := -std=c++11 -O2 -Wall -Wextra -Wno-missing-field-initializers
+# simple makefile – builds server and client
+# pass CXX=g++ or CXX=clang++ if you like; default is g++
+# default standard is c++11 so it compiles on the dcxx boxes.
+CXX      ?= g++
+CXXSTD   ?= 11         
+CXXFLAGS ?= -std=c++$(CXXSTD) -O2 -Wall -Wextra -Wpedantic -Wno-missing-field-initializers
+
 SERVER_EXE := server
 CLIENT_EXE := client
-SERVER_SRC := server.cpp
-CLIENT_SRC := client.cpp
 
 .PHONY: all clean rebuild
 
 all: $(SERVER_EXE) $(CLIENT_EXE)
 
-$(SERVER_EXE): $(SERVER_SRC)
+$(SERVER_EXE): server.cpp
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-$(CLIENT_EXE): $(CLIENT_SRC)
+$(CLIENT_EXE): client.cpp
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
