@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 
+<<<<<<< HEAD
 /* ---------------------------------------------------------------------------
    portable 64‑bit byte‑order helpers
    ---------------------------------------------------------------------------
@@ -24,6 +25,9 @@
    – most linux distros expose htobe64 / be64toh in <endian.h>
    – as a last‑ditch fall‑back we build them by hand with htonl / ntohl
    ------------------------------------------------------------------------- */
+=======
+
+>>>>>>> 64302c1 (final)
 #if defined(__APPLE__)
     #include <libkern/OSByteOrder.h>
     static inline uint64_t host_to_be64(uint64_t x) { return OSSwapHostToBigInt64(x); }
@@ -45,7 +49,10 @@
     }
     static inline uint64_t be64_to_host(uint64_t x) { return host_to_be64(x); }
 #endif
+<<<<<<< HEAD
 /* ------------------------------------------------------------------------ */
+=======
+>>>>>>> 64302c1 (final)
 
 static void die(const char* msg) { perror(msg); std::exit(1); }
 

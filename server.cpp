@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 
+<<<<<<< HEAD
 /* ---------------------------------------------------------------------------
    portable 64‑bit host/network conversion
    ---------------------------------------------------------------------------
@@ -33,6 +34,14 @@
     static inline uint64_t host_to_be64(uint64_t x) { return OSSwapHostToBigInt64(x); }
     static inline uint64_t be64_to_host(uint64_t x) { return OSSwapBigToHostInt64(x); }
 
+=======
+
+#if defined(__APPLE__)
+    #include <libkern/OSByteOrder.h>
+    static inline uint64_t host_to_be64(uint64_t x) { return OSSwapHostToBigInt64(x); }
+    static inline uint64_t be64_to_host(uint64_t x) { return OSSwapBigToHostInt64(x); }
+
+>>>>>>> 64302c1 (final)
 #elif defined(__linux__)
     #include <endian.h>
     static inline uint64_t host_to_be64(uint64_t x) { return htobe64(x); }
