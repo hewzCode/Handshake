@@ -1,6 +1,6 @@
 # Makefile for C++17 TCP client/server (UTD dcxx machines)
 CXX      := g++
-CXXFLAGS := -std=c++11 -O2 -Wall -Wextra -Wpedantic
+CXXFLAGS := -std=c++11 -O2 -Wall -Wextra -Wno-missing-field-initializers
 SERVER_EXE := server
 CLIENT_EXE := client
 SERVER_SRC := server.cpp
